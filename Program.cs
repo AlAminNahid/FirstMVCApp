@@ -25,5 +25,9 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 
+app.MapControllerRoute(
+    name: "product",
+    pattern: "/product/{category}/{id:int}",
+    defaults: new {controller="Product", action="List"});
 
 app.Run();

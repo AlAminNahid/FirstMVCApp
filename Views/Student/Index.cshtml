@@ -3,10 +3,28 @@
 }
 
 <h2>@ViewBag.Title</h2>
-<p>@ViewBag.Message</p>
+<p><em>@ViewData["Subtitle"]</em></p>
 
-<ul>
-    <li><a asp-controller="Student" asp-action="Details" asp-route-id="1">Student 1</a></li>
-    <li><a asp-controller="Student" asp-action="Details" asp-route-id="2">Student 2</a></li>
-    <li><a asp-controller="Student" asp-action="Details" asp-route-id="3">Student 3</a></li>
-</ul>
+@if (Model != null & Model.Count > 0){
+    <table border="1" cellpadding="6" cellspacing="0">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{int i = 1;}
+            @foreach(var student in Model){
+                <tr>
+                    <td>@i</td>
+                    <td>@student</td>
+                </tr>
+                i++; 
+            }
+        </tbody>
+    </table>
+}
+else{
+    <p>No Student Found</p>
+}
