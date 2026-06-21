@@ -1,0 +1,40 @@
+@{
+    ViewData["Title"] = "Registration";
+}
+
+<h2>Registration Page</h2>
+
+<form action="/user/registration" method="post">
+    <label>Full Name</label>
+    <input type="text" name="fullname" placeholder="fullname" class="form-control"/>
+
+    <label>Username</label>
+    <input type="text" name="username" placeholder="username" class="form-control"/>
+
+    <label>Email</label>
+    <input type="text" name="email" placeholder="email" class="form-control"/>
+
+    <label>Password</label>
+    <input type="password" name="password" placeholder="password" class="form-control"/>
+
+    <label>Confirm Password</label>
+    <input type="password" name="confirmPassword" placeholder="confirmPassword" class="form-control"/>
+
+    <br/>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>
+
+<br />
+
+@{
+    if(ViewBag.username != null){
+        <h3>Submitted Data</h3>
+
+        <p>FullName: @ViewBag.fullname</p>
+        <p>UserName: @ViewBag.username</p>
+        <p>Email: @ViewBag.email</p>
+        <p>Password: @ViewBag.password</p>
+    }
+}
+
+<a href="/user/home">Back to Home</a>

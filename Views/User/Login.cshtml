@@ -1,0 +1,33 @@
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login Page</h2>
+
+<form action="/user/login" method="post">
+    <label>Username</label>
+    <input type="text" name="username" placeholder="username" class="form-control" />
+
+    <label>Email</label>
+    <input type="text" name="email" placeholder="email" class="form-control" />
+
+    <label>Password</label>
+    <input type="number" name="password" placeholder="password" class="form-control"/>
+
+    <br/>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
+
+@{
+    if(ViewBag.username != null) {
+        <h3>Submitted Data</h3>
+
+        <p>UserName: @ViewBag.username</p>
+        <p>Email: @ViewBag.email</p>
+        <p>Password: @ViewBag.password</p>
+    }
+}
+
+<br />
+
+<a href="/user/home">Back to Home</a>
